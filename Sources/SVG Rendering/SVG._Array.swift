@@ -23,7 +23,7 @@ extension SVG {
         public static func _render<Buffer: RangeReplaceableCollection>(
             _ svg: Self,
             into buffer: inout Buffer,
-            context: inout SVGContext
+            context: inout SVG.Context
         ) where Buffer.Element == UInt8 {
             for element in svg.elements {
                 Element._render(element, into: &buffer, context: &context)

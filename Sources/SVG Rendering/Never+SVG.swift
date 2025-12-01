@@ -9,15 +9,15 @@ public import Renderable
 
 /// Conformance of `Never` to `Renderable` to support the type system.
 ///
-/// This provides the `Renderable` conformance with `SVGContext` as the context type.
+/// This provides the `Renderable` conformance with `SVG.Context` as the context type.
 extension Never: @retroactive Renderable {
-    public typealias Context = SVGContext
+    public typealias Context = SVG.Context
 
     @inlinable
     public static func _render<Buffer: RangeReplaceableCollection>(
         _ markup: Self,
         into buffer: inout Buffer,
-        context: inout SVGContext
+        context: inout SVG.Context
     ) where Buffer.Element == UInt8 {}
 
     public var body: Never { fatalError() }

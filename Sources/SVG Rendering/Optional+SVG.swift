@@ -19,7 +19,7 @@ extension Optional: SVG.View where Wrapped: SVG.View {
     public static func _render<Buffer: RangeReplaceableCollection>(
         _ svg: Self,
         into buffer: inout Buffer,
-        context: inout SVGContext
+        context: inout SVG.Context
     ) where Buffer.Element == UInt8 {
         guard let svg else { return }
         Wrapped._render(svg, into: &buffer, context: &context)

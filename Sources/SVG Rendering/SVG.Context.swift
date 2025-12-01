@@ -22,18 +22,20 @@ import Renderable
 ///
 /// This enables the same rendering logic to write to `[UInt8]`, `ContiguousArray<UInt8>`,
 /// `Data`, `ByteBuffer`, or any other byte buffer.
-public struct SVGContext: Sendable {
-    /// The current set of attributes to apply to the next SVG element.
-    public var attributes: OrderedDictionary<String, String>
-
-    /// Configuration for rendering, including formatting options.
-    public let configuration: Configuration
-
-    /// The current indentation level for pretty-printing.
-    public var currentIndentation: [UInt8]
+extension SVG {
+    public struct Context: Sendable {
+        /// The current set of attributes to apply to the next SVG element.
+        public var attributes: OrderedDictionary<String, String>
+        
+        /// Configuration for rendering, including formatting options.
+        public let configuration: SVG.Context.Configuration
+        
+        /// The current indentation level for pretty-printing.
+        public var currentIndentation: [UInt8]
+    }
 }
 
-extension SVGContext {
+extension SVG.Context {
     /// Creates a new SVG rendering context with the specified rendering configuration.
     ///
     /// - Parameter configuration: The rendering configuration to use. Defaults to `.default`.
@@ -44,7 +46,7 @@ extension SVGContext {
     }
 }
 
-extension SVGContext {
+extension SVG.Context {
     /// Configuration options for SVG rendering.
     public struct Configuration: Sendable {
         /// The indentation bytes to use for pretty-printing.
@@ -71,7 +73,7 @@ extension SVGContext {
     }
 }
 
-extension SVGContext {
+extension SVG.Context {
     /// Appends a newline to the buffer if configured for pretty printing.
     @inlinable
     public func appendNewline<Buffer: RangeReplaceableCollection>(
@@ -84,7 +86,7 @@ extension SVGContext {
 
     /// Returns a new context with increased indentation.
     @inlinable
-    public func indented() -> SVGContext {
+    public func indented() -> SVG.Context {
         var copy = self
         copy.currentIndentation.append(contentsOf: configuration.indentation)
         return copy
@@ -92,7 +94,7 @@ extension SVGContext {
 
     /// Returns a new context with decreased indentation.
     @inlinable
-    public func outdented() -> SVGContext {
+    public func outdented() -> SVG.Context {
         var copy = self
         if copy.currentIndentation.count >= configuration.indentation.count {
             copy.currentIndentation.removeLast(configuration.indentation.count)

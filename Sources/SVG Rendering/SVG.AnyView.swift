@@ -17,7 +17,7 @@ extension SVG {
         public static func _render<Buffer: RangeReplaceableCollection>(
             _ svg: SVG.AnyView,
             into buffer: inout Buffer,
-            context: inout SVGContext
+            context: inout SVG.Context
         ) where Buffer.Element == UInt8 {
             func render<T: SVG.View>(_ element: T) {
                 T._render(element, into: &buffer, context: &context)

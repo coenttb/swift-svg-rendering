@@ -35,7 +35,7 @@ extension SVG {
     ///
     /// - Note: This protocol is similar in design to SwiftUI's `View` protocol,
     ///   making it familiar to Swift developers who have worked with SwiftUI.
-    public protocol View: Renderable where Content: SVG.View, Context == SVGContext {
+    public protocol View: Renderable where Content: SVG.View, Context == SVG.Context {
         @SVG.Builder var body: Content { get }
     }
 }
@@ -46,7 +46,7 @@ extension SVG.View {
     public static func _render<Buffer: RangeReplaceableCollection>(
         _ svg: Self,
         into buffer: inout Buffer,
-        context: inout SVGContext
+        context: inout SVG.Context
     ) where Buffer.Element == UInt8 {
         Content._render(svg.body, into: &buffer, context: &context)
     }
@@ -76,27 +76,29 @@ extension SVG.View {
     }
 }
 
-extension SVG.View {
-    @inlinable
-    func render<Buffer: RangeReplaceableCollection>(
-        into buffer: inout Buffer,
-        context: inout SVGContext
-    ) where Buffer.Element == UInt8 {
-        Self._render(self, into: &buffer, context: &context)
-    }
-
-    /// Renders this SVG to a String.
-    ///
-    /// - Parameter configuration: The rendering configuration. Defaults to `.default`.
-    /// - Returns: The rendered SVG as a String.
-    @inlinable
-    public func render(_ configuration: SVGContext.Configuration = .default) -> String {
-        var context = SVGContext(configuration)
-        var buffer: [UInt8] = []
-        Self._render(self, into: &buffer, context: &context)
-        return String(decoding: buffer, as: UTF8.self)
-    }
-}
+//extension SVG.View {
+//    @inlinable
+//    func render<Buffer: RangeReplaceableCollection>(
+//        into buffer: inout Buffer,
+//        context: inout SVG.Context
+//    ) where Buffer.Element == UInt8 {
+//        Self._render(self, into: &buffer, context: &context)
+//    }
+//
+//    /// Renders this SVG to a String.
+//    ///
+//    /// - Parameter configuration: The rendering configuration. Defaults to `.default`.
+//    /// - Returns: The rendered SVG as a String.
+//    @inlinable
+//    public func render(
+//        _ configuration: SVG.Context.Configuration = .default
+//    ) -> String {
+//        var context = SVG.Context(configuration)
+//        var buffer: [UInt8] = []
+//        Self._render(self, into: &buffer, context: &context)
+//        return String(decoding: buffer, as: UTF8.self)
+//    }
+//}
 
 /// Provides a default `description` implementation for SVG types that also conform to `CustomStringConvertible`.
 extension CustomStringConvertible where Self: SVG.View {
@@ -104,7 +106,9 @@ extension CustomStringConvertible where Self: SVG.View {
         do {
             return try String(self)
         } catch {
-            return ""
+            let message = "\(Self.self) failed to convert to a String: \(error)"
+            Swift.print(message)
+            return message
         }
     }
 }
