@@ -256,9 +256,9 @@ extension SVG {
             case let string as String:
                 return string
             case let length as SVG_Standard.Types.Length:
-                return length.stringValue
+                return length.description
             case let viewBox as SVG_Standard.Types.ViewBox:
-                return viewBox.stringValue
+                return viewBox.description
             default:
                 return String(describing: value)
             }
