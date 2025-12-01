@@ -41,7 +41,8 @@ extension SVG {
         ///   - element: The SVG element type (e.g., Circle, Rectangle, Path).
         ///   - content: A closure that returns the content of this element.
         ///              If no content is provided, the element will be empty.
-        public init(_ element: ElementType, @SVG.Builder content: () -> Content? = { Never?.none }) {
+        public init(_ element: ElementType, @SVG.Builder content: () -> Content? = { Never?.none })
+        {
             self.element = element
             self.content = content()
         }
@@ -62,7 +63,8 @@ extension SVG {
             if let content = svg.content {
                 var tempContext = context
                 tempContext.attributes.removeAll()
-                tempContext.currentIndentation = context.currentIndentation + context.configuration.indentation
+                tempContext.currentIndentation =
+                    context.currentIndentation + context.configuration.indentation
                 Content._render(content, into: &actualContent, context: &tempContext)
                 collectedAttributes = tempContext.attributes
             }

@@ -86,9 +86,16 @@ extension SVG.View {
     }
 
     /// Applies a rotation transform to the SVG element.
-    public func rotate(_ angle: Double, cx: Double? = nil, cy: Double? = nil) -> SVG._Attributes<Self> {
+    public func rotate(
+        _ angle: Double,
+        cx: Double? = nil,
+        cy: Double? = nil
+    ) -> SVG._Attributes<Self> {
         if let cx = cx, let cy = cy {
-            return attribute("transform", "rotate(\(angle.formatted(.number)), \(cx.formatted(.number)), \(cy.formatted(.number)))")
+            return attribute(
+                "transform",
+                "rotate(\(angle.formatted(.number)), \(cx.formatted(.number)), \(cy.formatted(.number)))"
+            )
         }
         return attribute("transform", "rotate(\(angle.formatted(.number)))")
     }

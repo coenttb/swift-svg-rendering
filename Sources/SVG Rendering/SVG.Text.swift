@@ -5,6 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 26/11/2025.
 //
 
+import INCITS_4_1986
+
 /// Represents plain text content in SVG, with proper XML escaping.
 ///
 /// `SVG.Text` handles escaping special characters in text content to ensure
@@ -38,15 +40,15 @@ extension SVG {
             buffer.reserveCapacity(buffer.count + svg.text.utf8.count)
             for byte in svg.text.utf8 {
                 switch byte {
-                case UInt8(ascii: "&"):
+                case UInt8.ascii.ampersand:
                     buffer.append(contentsOf: "&amp;".utf8)
-                case UInt8(ascii: "<"):
+                case UInt8.ascii.lt:
                     buffer.append(contentsOf: "&lt;".utf8)
-                case UInt8(ascii: ">"):
+                case UInt8.ascii.gt:
                     buffer.append(contentsOf: "&gt;".utf8)
-                case UInt8(ascii: "\""):
+                case UInt8.ascii.backslash:
                     buffer.append(contentsOf: "&quot;".utf8)
-                case UInt8(ascii: "'"):
+                case UInt8.ascii.apostrophe:
                     buffer.append(contentsOf: "&apos;".utf8)
                 default:
                     buffer.append(byte)

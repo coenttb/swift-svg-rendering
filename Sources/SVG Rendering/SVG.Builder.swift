@@ -5,6 +5,10 @@
 //  Created by Coen ten Thije Boonkkamp on 26/11/2025.
 //
 
+import Renderable
+
+public typealias RenderableBuilder = Builder
+
 /// A result builder that enables declarative SVG construction with a SwiftUI-like syntax.
 ///
 /// `SVG.Builder` provides a DSL for constructing SVG content in Swift code.
@@ -28,6 +32,17 @@
 ///
 /// The `SVG.Builder` supports Swift language features like conditionals, loops,
 /// and optional unwrapping within the SVG construction DSL.
+
+//extension SVG {
+//    public typealias Builder = RenderableBuilder
+//}
+//
+//extension SVG.Builder {
+//    static func buildExpression(_ string: String) -> [any SVG.View] {
+//        [SVG.Text(string)]
+//    }
+//}
+
 extension SVG {
     @resultBuilder
     public enum Builder {
@@ -35,7 +50,9 @@ extension SVG {
         ///
         /// - Parameter components: An array of SVG components to combine.
         /// - Returns: A single SVG component representing the array of components.
-        public static func buildArray<Element: SVG.View>(_ components: [Element]) -> SVG._Array<Element> {
+        public static func buildArray<Element: SVG.View>(
+            _ components: [Element]
+        ) -> SVG._Array<Element> {
             SVG._Array(elements: components)
         }
 

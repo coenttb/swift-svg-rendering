@@ -6,6 +6,7 @@
 //
 
 import Testing
+
 @testable import SVG_Rendering
 
 @Suite("SVG Renderable Tests")
