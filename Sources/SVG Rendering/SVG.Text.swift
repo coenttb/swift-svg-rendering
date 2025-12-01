@@ -46,7 +46,7 @@ extension SVG {
                     buffer.append(contentsOf: "&lt;".utf8)
                 case UInt8.ascii.gt:
                     buffer.append(contentsOf: "&gt;".utf8)
-                case UInt8.ascii.backslash:
+                case UInt8.ascii.dquote:
                     buffer.append(contentsOf: "&quot;".utf8)
                 case UInt8.ascii.apostrophe:
                     buffer.append(contentsOf: "&apos;".utf8)

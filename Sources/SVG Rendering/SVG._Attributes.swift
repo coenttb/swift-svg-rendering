@@ -23,6 +23,8 @@ extension SVG {
             into buffer: inout Buffer,
             context: inout SVGContext
         ) where Buffer.Element == UInt8 {
+            let previousValue = context.attributes
+            defer { context.attributes = previousValue }
             for (key, value) in svg.attributes {
                 context.attributes[key] = value
             }
