@@ -3,11 +3,11 @@
 import PackageDescription
 
 extension String {
-    static let svgRenderable = "SVG Renderable"
+    static let svgRendering = "SVG Rendering"
 }
 
 extension Target.Dependency {
-    static let svgRenderable: Self = .target(name: .svgRenderable)
+    static let svgRendering: Self = .target(name: .svgRendering)
 }
 
 extension Target.Dependency {
@@ -20,7 +20,7 @@ extension Target.Dependency {
 }
 
 let package = Package(
-    name: "swift-svg-renderable",
+    name: "swift-svg-rendering",
     platforms: [
         .macOS(.v15),
         .iOS(.v18),
@@ -28,36 +28,38 @@ let package = Package(
         .watchOS(.v11),
     ],
     products: [
-        .library(name: .svgRenderable, targets: [.svgRenderable]),
+        .library(name: .svgRendering, targets: [.svgRendering]),
     ],
     dependencies: [
-        .package(url: "https://github.com/coenttb/swift-renderable", from: "0.1.0"),
+        .package(url: "https://github.com/coenttb/swift-renderable", from: "3.0.0"),
         .package(url: "https://github.com/swift-standards/swift-svg-standard", from: "0.1.0"),
         .package(url: "https://github.com/swift-standards/swift-numeric-formatting-standard", from: "0.1.0"),
         .package(url: "https://github.com/swift-standards/swift-incits-4-1986", from: "0.1.0"),
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.0"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.0.0"),
     ],
     targets: [
         .target(
-            name: .svgRenderable,
+            name: .svgRendering,
             dependencies: [
                 .renderable,
                 .svgStandard,
                 .incits4_1986,
                 .numericFormatting,
-                .orderedCollections,
-                .dependencies,
+                .orderedCollections
             ]
         ),
         .testTarget(
-            name: "SVG Renderable Tests",
+            name: .svgRendering.tests,
             dependencies: [
-                .svgRenderable,
+                .svgRendering,
             ]
         ),
     ]
 )
+
+extension String {
+    var tests: Self { self + " Tests" }
+}
 
 for target in package.targets where ![.system, .binary, .plugin].contains(target.type) {
     let existing = target.swiftSettings ?? []
