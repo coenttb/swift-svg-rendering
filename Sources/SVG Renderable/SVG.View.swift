@@ -84,6 +84,18 @@ extension SVG.View {
     ) where Buffer.Element == UInt8 {
         Self._render(self, into: &buffer, context: &context)
     }
+
+    /// Renders this SVG to a String.
+    ///
+    /// - Parameter configuration: The rendering configuration. Defaults to `.default`.
+    /// - Returns: The rendered SVG as a String.
+    @inlinable
+    public func render(_ configuration: SVGContext.Configuration = .default) -> String {
+        var context = SVGContext(configuration)
+        var buffer: [UInt8] = []
+        Self._render(self, into: &buffer, context: &context)
+        return String(decoding: buffer, as: UTF8.self)
+    }
 }
 
 /// Provides a default `description` implementation for SVG types that also conform to `CustomStringConvertible`.
