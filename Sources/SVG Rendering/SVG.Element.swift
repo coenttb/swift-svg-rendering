@@ -7,7 +7,7 @@
 
 import INCITS_4_1986
 import OrderedCollections
-import Renderable
+import Rendering
 
 extension SVG {
     /// Represents an SVG element with a tag, attributes, and optional content.

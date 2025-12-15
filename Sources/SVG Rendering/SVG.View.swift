@@ -6,7 +6,7 @@
 //
 
 import OrderedCollections
-public import Renderable
+public import Rendering
 
 /// A namespace for SVG-related types.
 public enum SVG {}
@@ -35,7 +35,7 @@ extension SVG {
     ///
     /// - Note: This protocol is similar in design to SwiftUI's `View` protocol,
     ///   making it familiar to Swift developers who have worked with SwiftUI.
-    public protocol View: Renderable where Content: SVG.View, Context == SVG.Context {
+    public protocol View: Renderable where Content: SVG.View, Context == SVG.Context, Output == UInt8 {
         @SVG.Builder var body: Content { get }
     }
 }
@@ -103,12 +103,6 @@ extension SVG.View {
 /// Provides a default `description` implementation for SVG types that also conform to `CustomStringConvertible`.
 extension CustomStringConvertible where Self: SVG.View {
     public var description: String {
-        do {
-            return try String(self)
-        } catch {
-            let message = "\(Self.self) failed to convert to a String: \(error)"
-            Swift.print(message)
-            return message
-        }
+        String(self)
     }
 }

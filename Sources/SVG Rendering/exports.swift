@@ -6,7 +6,7 @@
 //
 
 @_exported import INCITS_4_1986
-@_exported import Numeric_Formatting
+@_exported import Formatting
 @_exported import OrderedCollections
-@_exported import Renderable
+@_exported import Rendering
 @_exported import SVG_Standard

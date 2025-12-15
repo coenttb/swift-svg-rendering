@@ -7,7 +7,7 @@
 //
 
 public import OrderedCollections
-import Renderable
+import Rendering
 
 /// Rendering context for SVG streaming.
 ///

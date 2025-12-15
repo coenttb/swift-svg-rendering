@@ -11,7 +11,8 @@ extension Target.Dependency {
 }
 
 extension Target.Dependency {
-    static let renderable: Self = .product(name: "Renderable", package: "swift-renderable")
+    static let renderable: Self = .product(name: "Rendering", package: "swift-renderable")
+    static let renderableAsync: Self = .product(name: "RenderingAsync", package: "swift-renderable")
     static let svgStandard: Self = .product(name: "SVG Standard", package: "swift-svg-standard")
     static let orderedCollections: Self = .product(
         name: "OrderedCollections",
@@ -19,30 +20,24 @@ extension Target.Dependency {
     )
     static let dependencies: Self = .product(name: "Dependencies", package: "swift-dependencies")
     static let incits4_1986: Self = .product(name: "INCITS 4 1986", package: "swift-incits-4-1986")
-    static let numericFormatting: Self = .product(
-        name: "Numeric Formatting",
-        package: "swift-numeric-formatting-standard"
-    )
+    static let formatting: Self = .product(name: "Formatting", package: "swift-standards")
 }
 
 let package = Package(
     name: "swift-svg-rendering",
     platforms: [
-        .macOS(.v15),
-        .iOS(.v18),
-        .tvOS(.v18),
-        .watchOS(.v11),
+        .macOS(.v26),
+        .iOS(.v26),
+        .tvOS(.v26),
+        .watchOS(.v26),
     ],
     products: [
         .library(name: .svgRendering, targets: [.svgRendering])
     ],
     dependencies: [
-        .package(url: "https://github.com/coenttb/swift-renderable", from: "3.0.0"),
+        .package(url: "https://github.com/coenttb/swift-renderable", from: "3.2.0"),
         .package(url: "https://github.com/swift-standards/swift-svg-standard", from: "0.1.0"),
-        .package(
-            url: "https://github.com/swift-standards/swift-numeric-formatting-standard",
-            from: "0.1.0"
-        ),
+        .package(url: "https://github.com/swift-standards/swift-standards",from: "0.1.0"),
         .package(url: "https://github.com/swift-standards/swift-incits-4-1986", from: "0.1.0"),
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.0"),
     ],
@@ -51,9 +46,10 @@ let package = Package(
             name: .svgRendering,
             dependencies: [
                 .renderable,
+                .renderableAsync,
                 .svgStandard,
                 .incits4_1986,
-                .numericFormatting,
+                .formatting,
                 .orderedCollections,
             ]
         ),

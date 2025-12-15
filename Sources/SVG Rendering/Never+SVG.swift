@@ -5,13 +5,15 @@
 //  Created by Coen ten Thije Boonkkamp on 26/11/2025.
 //
 
-public import Renderable
+public import Rendering
 
 /// Conformance of `Never` to `Renderable` to support the type system.
 ///
 /// This provides the `Renderable` conformance with `SVG.Context` as the context type.
 extension Never: @retroactive Renderable {
+    public typealias Content = Never
     public typealias Context = SVG.Context
+    public typealias Output = UInt8
 
     @inlinable
     public static func _render<Buffer: RangeReplaceableCollection>(

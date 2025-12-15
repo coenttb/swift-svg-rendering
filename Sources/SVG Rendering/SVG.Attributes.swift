@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp
 //
 
-import Numeric_Formatting
+import Formatting
 
 // MARK: - Presentation Attributes
 
