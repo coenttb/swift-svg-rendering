@@ -21,6 +21,7 @@ extension Target.Dependency {
     static let dependencies: Self = .product(name: "Dependencies", package: "swift-dependencies")
     static let incits4_1986: Self = .product(name: "INCITS 4 1986", package: "swift-incits-4-1986")
     static let formatting: Self = .product(name: "Formatting", package: "swift-standards")
+    static let dimension: Self = .product(name: "Dimension", package: "swift-standards")
 }
 
 let package = Package(
@@ -50,6 +51,7 @@ let package = Package(
                 .svgStandard,
                 .incits4_1986,
                 .formatting,
+                .dimension,
                 .orderedCollections,
             ]
         ),

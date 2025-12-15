@@ -5,6 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 26/11/2025.
 //
 
+import Dimension
 import OrderedCollections
 public import Rendering
 
@@ -73,6 +74,15 @@ extension SVG.View {
     /// - Returns: An SVG element with the attribute applied.
     public func attribute(_ name: String, _ value: String? = "") -> SVG._Attributes<Self> {
         SVG._Attributes(content: self, attributes: value.map { [name: $0] } ?? [:])
+    }
+    
+    public func attribute(_ name: String, _ value: Double?) -> SVG._Attributes<Self> {
+        attribute(name, value?.formatted(.number))
+    }
+
+    /// Generic attribute setter for any Tagged type with a FloatingPoint raw value.
+    public func attribute<Tag>(_ name: String, _ value: Tagged<Tag, Double>?) -> SVG._Attributes<Self> {
+        attribute(name, value?.formatted(.number))
     }
 }
 

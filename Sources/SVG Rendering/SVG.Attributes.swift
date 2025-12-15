@@ -34,17 +34,17 @@ extension SVG.View {
 
     /// Sets the opacity of the SVG element.
     public func opacity(_ value: Double?) -> SVG._Attributes<Self> {
-        attribute("opacity", value?.formatted(.number))
+        attribute("opacity", value)
     }
 
     /// Sets the fill opacity of the SVG element.
     public func fillOpacity(_ value: Double?) -> SVG._Attributes<Self> {
-        attribute("fill-opacity", value?.formatted(.number))
+        attribute("fill-opacity", value)
     }
 
     /// Sets the stroke opacity of the SVG element.
     public func strokeOpacity(_ value: Double?) -> SVG._Attributes<Self> {
-        attribute("stroke-opacity", value?.formatted(.number))
+        attribute("stroke-opacity", value)
     }
 
     /// Sets the stroke line cap of the SVG element.
@@ -64,7 +64,7 @@ extension SVG.View {
 
     /// Sets the stroke dash offset of the SVG element.
     public func strokeDashoffset(_ value: Double?) -> SVG._Attributes<Self> {
-        attribute("stroke-dashoffset", value?.formatted(.number))
+        attribute("stroke-dashoffset", value)
     }
 
     /// Sets the fill rule of the SVG element.
@@ -168,7 +168,7 @@ extension SVG.View {
 
     /// Sets the font-size attribute of the SVG element.
     public func fontSize(_ value: Double?) -> SVG._Attributes<Self> {
-        attribute("font-size", value?.formatted(.number))
+        attribute("font-size", value)
     }
 
     /// Sets the font-size attribute of the SVG element with a string value.
@@ -221,17 +221,17 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the cx attribute (center x-coordinate).
     public func cx(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("cx", value?.formatted(.number))
+        return attribute("cx", value)
     }
 
     /// Sets the cy attribute (center y-coordinate).
     public func cy(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("cy", value?.formatted(.number))
+        return attribute("cy", value)
     }
 
     /// Sets the r attribute (radius).
     public func r(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("r", value?.formatted(.number))
+        return attribute("r", value)
     }
 
     /// Sets the r attribute (radius) as a string.
@@ -241,17 +241,17 @@ extension SVG.View {
 
     /// Sets the rx attribute (x-axis radius).
     public func rx(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("rx", value?.formatted(.number))
+        return attribute("rx", value)
     }
 
     /// Sets the ry attribute (y-axis radius).
     public func ry(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("ry", value?.formatted(.number))
+        return attribute("ry", value)
     }
 
     /// Sets the x attribute.
     public func x(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("x", value?.formatted(.number))
+        return attribute("x", value)
     }
 
     /// Sets the x attribute as a string (for lengths with units).
@@ -261,7 +261,7 @@ extension SVG.View {
 
     /// Sets the y attribute.
     public func y(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("y", value?.formatted(.number))
+        return attribute("y", value)
     }
 
     /// Sets the y attribute as a string (for lengths with units).
@@ -271,7 +271,7 @@ extension SVG.View {
 
     /// Sets the width attribute.
     public func width(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("width", value?.formatted(.number))
+        return attribute("width", value)
     }
 
     /// Sets the width attribute as a string (for lengths with units).
@@ -281,7 +281,7 @@ extension SVG.View {
 
     /// Sets the height attribute.
     public func height(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("height", value?.formatted(.number))
+        return attribute("height", value)
     }
 
     /// Sets the height attribute as a string (for lengths with units).
@@ -291,7 +291,7 @@ extension SVG.View {
 
     /// Sets the x1 attribute (line start x-coordinate).
     public func x1(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("x1", value?.formatted(.number))
+        return attribute("x1", value)
     }
 
     /// Sets the x1 attribute as a string.
@@ -301,7 +301,7 @@ extension SVG.View {
 
     /// Sets the y1 attribute (line start y-coordinate).
     public func y1(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("y1", value?.formatted(.number))
+        return attribute("y1", value)
     }
 
     /// Sets the y1 attribute as a string.
@@ -311,7 +311,7 @@ extension SVG.View {
 
     /// Sets the x2 attribute (line end x-coordinate).
     public func x2(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("x2", value?.formatted(.number))
+        return attribute("x2", value)
     }
 
     /// Sets the x2 attribute as a string.
@@ -321,7 +321,7 @@ extension SVG.View {
 
     /// Sets the y2 attribute (line end y-coordinate).
     public func y2(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("y2", value?.formatted(.number))
+        return attribute("y2", value)
     }
 
     /// Sets the y2 attribute as a string.
@@ -341,7 +341,7 @@ extension SVG.View {
 
     /// Sets the pathLength attribute.
     public func pathLength(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("pathLength", value?.formatted(.number))
+        return attribute("pathLength", value)
     }
 }
 
@@ -443,7 +443,7 @@ extension SVG.View {
 
     /// Sets the stop-opacity attribute.
     public func stopOpacity(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("stop-opacity", value?.formatted(.number))
+        return attribute("stop-opacity", value)
     }
 
     /// Sets the fx attribute (radial gradient focal point x).
@@ -505,7 +505,7 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the refX attribute.
     public func refX(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("refX", value?.formatted(.number))
+        return attribute("refX", value)
     }
 
     /// Sets the refX attribute as a string.
@@ -515,7 +515,7 @@ extension SVG.View {
 
     /// Sets the refY attribute.
     public func refY(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("refY", value?.formatted(.number))
+        return attribute("refY", value)
     }
 
     /// Sets the refY attribute as a string.
@@ -525,12 +525,12 @@ extension SVG.View {
 
     /// Sets the markerWidth attribute.
     public func markerWidth(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("markerWidth", value?.formatted(.number))
+        return attribute("markerWidth", value)
     }
 
     /// Sets the markerHeight attribute.
     public func markerHeight(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("markerHeight", value?.formatted(.number))
+        return attribute("markerHeight", value)
     }
 
     /// Sets the markerUnits attribute.
@@ -549,7 +549,7 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the dx attribute (text offset x).
     public func dx(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("dx", value?.formatted(.number))
+        return attribute("dx", value)
     }
 
     /// Sets the dx attribute as a string.
@@ -559,7 +559,7 @@ extension SVG.View {
 
     /// Sets the dy attribute (text offset y).
     public func dy(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("dy", value?.formatted(.number))
+        return attribute("dy", value)
     }
 
     /// Sets the dy attribute as a string.
@@ -569,7 +569,7 @@ extension SVG.View {
 
     /// Sets the textLength attribute.
     public func textLength(_ value: Double?) -> SVG._Attributes<Self> {
-        return attribute("textLength", value?.formatted(.number))
+        return attribute("textLength", value)
     }
 
     /// Sets the textLength attribute as a string.
@@ -588,96 +588,96 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the x attribute from a typed X coordinate.
     public func x(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
-        return attribute("x", "\(value)")
+        return attribute("x", value)
     }
 
     /// Sets the y attribute from a typed Y coordinate.
     public func y(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
-        return attribute("y", "\(value)")
+        return attribute("y", value)
     }
 
     /// Sets the width attribute from a typed Width.
     public func width(_ value: W3C_SVG2.Width?) -> SVG._Attributes<Self> {
-        return attribute("width", "\(value)")
+        return attribute("width", value)
     }
 
     /// Sets the height attribute from a typed Height.
     public func height(_ value: W3C_SVG2.Height?) -> SVG._Attributes<Self> {
-        return attribute("height", "\(value)")
+        return attribute("height", value)
     }
 
     /// Sets the cx attribute from a typed X coordinate.
     public func cx(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
-        return attribute("cx", "\(value)")
+        return attribute("cx", value)
     }
 
     /// Sets the cy attribute from a typed Y coordinate.
     public func cy(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
-        return attribute("cy", "\(value)")
+        return attribute("cy", value)
     }
 
     /// Sets the r attribute from a typed Radius.
     public func r(_ value: W3C_SVG2.Radius?) -> SVG._Attributes<Self> {
-        return attribute("r", "\(value)")
+        return attribute("r", value)
     }
 
     /// Sets the rx attribute from a typed Width.
     public func rx(_ value: W3C_SVG2.Width?) -> SVG._Attributes<Self> {
-        return attribute("rx", "\(value)")
+        return attribute("rx", value)
     }
 
     /// Sets the ry attribute from a typed Height.
     public func ry(_ value: W3C_SVG2.Height?) -> SVG._Attributes<Self> {
-        return attribute("ry", "\(value)")
+        return attribute("ry", value)
     }
 
     /// Sets the x1 attribute from a typed X coordinate.
     public func x1(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
-        return attribute("x1", "\(value)")
+        return attribute("x1", value)
     }
 
     /// Sets the y1 attribute from a typed Y coordinate.
     public func y1(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
-        return attribute("y1", "\(value)")
+        return attribute("y1", value)
     }
 
     /// Sets the x2 attribute from a typed X coordinate.
     public func x2(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
-        return attribute("x2", "\(value)")
+        return attribute("x2", value)
     }
 
     /// Sets the y2 attribute from a typed Y coordinate.
     public func y2(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
-        return attribute("y2", "\(value)")
+        return attribute("y2", value)
     }
 
     /// Sets the dx attribute from a typed Dx displacement.
     public func dx(_ value: W3C_SVG2.Dx?) -> SVG._Attributes<Self> {
-        return attribute("dx", "\(value)")
+        return attribute("dx", value)
     }
 
     /// Sets the dy attribute from a typed Dy displacement.
     public func dy(_ value: W3C_SVG2.Dy?) -> SVG._Attributes<Self> {
-        return attribute("dy", "\(value)")
+        return attribute("dy", value)
     }
 
     /// Sets the refX attribute from a typed X coordinate.
     public func refX(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
-        return attribute("refX", "\(value)")
+        return attribute("refX", value)
     }
 
     /// Sets the refY attribute from a typed Y coordinate.
     public func refY(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
-        return attribute("refY", "\(value)")
+        return attribute("refY", value)
     }
 
     /// Sets the markerWidth attribute from a typed Width.
     public func markerWidth(_ value: W3C_SVG2.Width?) -> SVG._Attributes<Self> {
-        return attribute("markerWidth", "\(value)")
+        return attribute("markerWidth", value)
     }
 
     /// Sets the markerHeight attribute from a typed Height.
     public func markerHeight(_ value: W3C_SVG2.Height?) -> SVG._Attributes<Self> {
-        return attribute("markerHeight", "\(value)")
+        return attribute("markerHeight", value)
     }
 }
