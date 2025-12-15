@@ -115,7 +115,7 @@ extension SVG {
 
         /// This type uses direct rendering and doesn't have a body.
         public var body: Never {
-            fatalError()
+            fatalError("body should not be called")
         }
     }
 }

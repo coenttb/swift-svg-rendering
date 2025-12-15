@@ -33,6 +33,6 @@ extension SVG {
             buffer.append(contentsOf: svg.content.utf8)
         }
 
-        public var body: Never { fatalError() }
+        public var body: Never { fatalError("body should not be called") }
     }
 }

@@ -360,7 +360,10 @@ extension SVG.View {
         width: Double,
         height: Double
     ) -> SVG._Attributes<Self> {
-        attribute("viewBox", "\(minX.formatted(.number)) \(minY.formatted(.number)) \(width.formatted(.number)) \(height.formatted(.number))")
+        attribute(
+            "viewBox",
+            "\(minX.formatted(.number)) \(minY.formatted(.number)) \(width.formatted(.number)) \(height.formatted(.number))"
+        )
     }
 
     /// Sets the preserveAspectRatio attribute.

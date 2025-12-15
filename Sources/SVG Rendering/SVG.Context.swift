@@ -26,10 +26,10 @@ extension SVG {
     public struct Context: Sendable {
         /// The current set of attributes to apply to the next SVG element.
         public var attributes: OrderedDictionary<String, String>
-        
+
         /// Configuration for rendering, including formatting options.
         public let configuration: SVG.Context.Configuration
-        
+
         /// The current indentation level for pretty-printing.
         public var currentIndentation: [UInt8]
     }

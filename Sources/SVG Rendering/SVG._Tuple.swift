@@ -14,7 +14,7 @@ extension _Tuple: @retroactive Renderable where repeat each Content: SVG.View {
     public typealias Context = SVG.Context
     public typealias Content = Never
     public typealias Output = UInt8
-    public var body: Never { fatalError() }
+    public var body: Never { fatalError("body should not be called") }
 
     public static func _render<Buffer: RangeReplaceableCollection>(
         _ svg: Self,

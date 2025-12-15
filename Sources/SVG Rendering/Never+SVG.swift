@@ -22,7 +22,7 @@ extension Never: @retroactive Renderable {
         context: inout SVG.Context
     ) where Buffer.Element == UInt8 {}
 
-    public var body: Never { fatalError() }
+    public var body: Never { fatalError("body should not be called") }
 }
 
 /// Conformance of `Never` to `SVG.View` to support the type system.

@@ -25,7 +25,7 @@ extension SVG {
             render(svg.base)
         }
 
-        public var body: Never { fatalError() }
+        public var body: Never { fatalError("body should not be called") }
     }
 }
 

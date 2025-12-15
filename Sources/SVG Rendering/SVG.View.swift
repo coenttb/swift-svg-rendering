@@ -36,7 +36,8 @@ extension SVG {
     ///
     /// - Note: This protocol is similar in design to SwiftUI's `View` protocol,
     ///   making it familiar to Swift developers who have worked with SwiftUI.
-    public protocol View: Renderable where Content: SVG.View, Context == SVG.Context, Output == UInt8 {
+    public protocol View: Renderable
+    where Content: SVG.View, Context == SVG.Context, Output == UInt8 {
         @SVG.Builder var body: Content { get }
     }
 }
@@ -75,13 +76,16 @@ extension SVG.View {
     public func attribute(_ name: String, _ value: String? = "") -> SVG._Attributes<Self> {
         SVG._Attributes(content: self, attributes: value.map { [name: $0] } ?? [:])
     }
-    
+
     public func attribute(_ name: String, _ value: Double?) -> SVG._Attributes<Self> {
         attribute(name, value?.formatted(.number))
     }
 
     /// Generic attribute setter for any Tagged type with a FloatingPoint raw value.
-    public func attribute<Tag>(_ name: String, _ value: Tagged<Tag, Double>?) -> SVG._Attributes<Self> {
+    public func attribute<Tag>(
+        _ name: String,
+        _ value: Tagged<Tag, Double>?
+    ) -> SVG._Attributes<Self> {
         attribute(name, value?.formatted(.number))
     }
 }

@@ -31,7 +31,7 @@ extension SVG {
             Content._render(svg.content, into: &buffer, context: &context)
         }
 
-        public var body: Never { fatalError() }
+        public var body: Never { fatalError("body should not be called") }
     }
 }
 

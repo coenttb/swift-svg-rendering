@@ -30,22 +30,10 @@ public typealias RenderableBuilder = Builder
 /// }
 /// ```
 ///
-/// The `SVG.Builder` supports Swift language features like conditionals, loops,
-/// and optional unwrapping within the SVG construction DSL.
-
-//extension SVG {
-//    public typealias Builder = RenderableBuilder
-//}
-//
-//extension SVG.Builder {
-//    static func buildExpression(_ string: String) -> [any SVG.View] {
-//        [SVG.Text(string)]
-//    }
-//}
-
-import Rendering
 public typealias BuilderRaw = Builder
 
+/// The `SVG.Builder` supports Swift language features like conditionals, loops,
+/// and optional unwrapping within the SVG construction DSL.
 extension SVG {
     public typealias Builder = BuilderRaw
 }

@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 26/11/2025.
 //
 
-import Testing
 import SVG_Standard
+import Testing
 
 @testable import SVG_Rendering
 
