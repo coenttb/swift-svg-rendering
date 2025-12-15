@@ -76,30 +76,6 @@ extension SVG.View {
     }
 }
 
-//extension SVG.View {
-//    @inlinable
-//    func render<Buffer: RangeReplaceableCollection>(
-//        into buffer: inout Buffer,
-//        context: inout SVG.Context
-//    ) where Buffer.Element == UInt8 {
-//        Self._render(self, into: &buffer, context: &context)
-//    }
-//
-//    /// Renders this SVG to a String.
-//    ///
-//    /// - Parameter configuration: The rendering configuration. Defaults to `.default`.
-//    /// - Returns: The rendered SVG as a String.
-//    @inlinable
-//    public func render(
-//        _ configuration: SVG.Context.Configuration = .default
-//    ) -> String {
-//        var context = SVG.Context(configuration)
-//        var buffer: [UInt8] = []
-//        Self._render(self, into: &buffer, context: &context)
-//        return String(decoding: buffer, as: UTF8.self)
-//    }
-//}
-
 /// Provides a default `description` implementation for SVG types that also conform to `CustomStringConvertible`.
 extension CustomStringConvertible where Self: SVG.View {
     public var description: String {

@@ -6,6 +6,7 @@
 //
 
 import Formatting
+public import SVG_Standard
 
 // MARK: - Presentation Attributes
 
@@ -21,29 +22,29 @@ extension SVG.View {
     }
 
     /// Sets the stroke color and width of the SVG element.
-    public func stroke(_ color: String, width: Double) -> SVG._Attributes<Self> {
+    public func stroke(_ color: String?, width: Double?) -> SVG._Attributes<Self> {
         attribute("stroke", color)
-            .attribute("stroke-width", width.formatted(.number))
+            .attribute("stroke-width", width?.formatted(.number))
     }
 
     /// Sets the stroke width of the SVG element.
-    public func strokeWidth(_ width: Double) -> SVG._Attributes<Self> {
-        attribute("stroke-width", width.formatted(.number))
+    public func strokeWidth(_ width: Double?) -> SVG._Attributes<Self> {
+        attribute("stroke-width", width?.formatted(.number))
     }
 
     /// Sets the opacity of the SVG element.
-    public func opacity(_ value: Double) -> SVG._Attributes<Self> {
-        attribute("opacity", value.formatted(.number))
+    public func opacity(_ value: Double?) -> SVG._Attributes<Self> {
+        attribute("opacity", value?.formatted(.number))
     }
 
     /// Sets the fill opacity of the SVG element.
-    public func fillOpacity(_ value: Double) -> SVG._Attributes<Self> {
-        attribute("fill-opacity", value.formatted(.number))
+    public func fillOpacity(_ value: Double?) -> SVG._Attributes<Self> {
+        attribute("fill-opacity", value?.formatted(.number))
     }
 
     /// Sets the stroke opacity of the SVG element.
-    public func strokeOpacity(_ value: Double) -> SVG._Attributes<Self> {
-        attribute("stroke-opacity", value.formatted(.number))
+    public func strokeOpacity(_ value: Double?) -> SVG._Attributes<Self> {
+        attribute("stroke-opacity", value?.formatted(.number))
     }
 
     /// Sets the stroke line cap of the SVG element.
@@ -62,8 +63,8 @@ extension SVG.View {
     }
 
     /// Sets the stroke dash offset of the SVG element.
-    public func strokeDashoffset(_ value: Double) -> SVG._Attributes<Self> {
-        attribute("stroke-dashoffset", value.formatted(.number))
+    public func strokeDashoffset(_ value: Double?) -> SVG._Attributes<Self> {
+        attribute("stroke-dashoffset", value?.formatted(.number))
     }
 
     /// Sets the fill rule of the SVG element.
@@ -109,12 +110,16 @@ extension SVG.View {
     }
 
     /// Applies a skewX transform to the SVG element.
-    public func skewX(_ angle: Double) -> SVG._Attributes<Self> {
+    public func skewX(
+        _ angle: Double
+    ) -> SVG._Attributes<Self> {
         attribute("transform", "skewX(\(angle.formatted(.number)))")
     }
 
     /// Applies a skewY transform to the SVG element.
-    public func skewY(_ angle: Double) -> SVG._Attributes<Self> {
+    public func skewY(
+        _ angle: Double
+    ) -> SVG._Attributes<Self> {
         attribute("transform", "skewY(\(angle.formatted(.number)))")
     }
 }
@@ -162,8 +167,8 @@ extension SVG.View {
     }
 
     /// Sets the font-size attribute of the SVG element.
-    public func fontSize(_ value: Double) -> SVG._Attributes<Self> {
-        attribute("font-size", value.formatted(.number))
+    public func fontSize(_ value: Double?) -> SVG._Attributes<Self> {
+        attribute("font-size", value?.formatted(.number))
     }
 
     /// Sets the font-size attribute of the SVG element with a string value.
@@ -216,152 +221,127 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the cx attribute (center x-coordinate).
     public func cx(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("cx", value.formatted(.number))
+        return attribute("cx", value?.formatted(.number))
     }
 
     /// Sets the cy attribute (center y-coordinate).
     public func cy(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("cy", value.formatted(.number))
+        return attribute("cy", value?.formatted(.number))
     }
 
     /// Sets the r attribute (radius).
     public func r(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("r", value.formatted(.number))
+        return attribute("r", value?.formatted(.number))
     }
 
     /// Sets the r attribute (radius) as a string.
     public func r(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("r", value)
     }
 
     /// Sets the rx attribute (x-axis radius).
     public func rx(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("rx", value.formatted(.number))
+        return attribute("rx", value?.formatted(.number))
     }
 
     /// Sets the ry attribute (y-axis radius).
     public func ry(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("ry", value.formatted(.number))
+        return attribute("ry", value?.formatted(.number))
     }
 
     /// Sets the x attribute.
     public func x(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("x", value.formatted(.number))
+        return attribute("x", value?.formatted(.number))
     }
 
     /// Sets the x attribute as a string (for lengths with units).
     public func x(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("x", value)
     }
 
     /// Sets the y attribute.
     public func y(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("y", value.formatted(.number))
+        return attribute("y", value?.formatted(.number))
     }
 
     /// Sets the y attribute as a string (for lengths with units).
     public func y(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("y", value)
     }
 
     /// Sets the width attribute.
     public func width(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("width", value.formatted(.number))
+        return attribute("width", value?.formatted(.number))
     }
 
     /// Sets the width attribute as a string (for lengths with units).
     public func width(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("width", value)
     }
 
     /// Sets the height attribute.
     public func height(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("height", value.formatted(.number))
+        return attribute("height", value?.formatted(.number))
     }
 
     /// Sets the height attribute as a string (for lengths with units).
     public func height(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("height", value)
     }
 
     /// Sets the x1 attribute (line start x-coordinate).
     public func x1(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("x1", value.formatted(.number))
+        return attribute("x1", value?.formatted(.number))
     }
 
     /// Sets the x1 attribute as a string.
     public func x1(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("x1", value)
     }
 
     /// Sets the y1 attribute (line start y-coordinate).
     public func y1(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("y1", value.formatted(.number))
+        return attribute("y1", value?.formatted(.number))
     }
 
     /// Sets the y1 attribute as a string.
     public func y1(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("y1", value)
     }
 
     /// Sets the x2 attribute (line end x-coordinate).
     public func x2(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("x2", value.formatted(.number))
+        return attribute("x2", value?.formatted(.number))
     }
 
     /// Sets the x2 attribute as a string.
     public func x2(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("x2", value)
     }
 
     /// Sets the y2 attribute (line end y-coordinate).
     public func y2(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("y2", value.formatted(.number))
+        return attribute("y2", value?.formatted(.number))
     }
 
     /// Sets the y2 attribute as a string.
     public func y2(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("y2", value)
     }
 
     /// Sets the points attribute (for polygon/polyline).
     public func points(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("points", value)
     }
 
     /// Sets the d attribute (path data).
     public func d(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("d", value)
     }
 
     /// Sets the pathLength attribute.
     public func pathLength(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("pathLength", value.formatted(.number))
+        return attribute("pathLength", value?.formatted(.number))
     }
 }
 
@@ -370,18 +350,21 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the viewBox attribute.
     public func viewBox(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("viewBox", value)
     }
 
     /// Sets the viewBox attribute from individual values.
-    public func viewBox(minX: Double, minY: Double, width: Double, height: Double) -> SVG._Attributes<Self> {
+    public func viewBox(
+        minX: Double,
+        minY: Double,
+        width: Double,
+        height: Double
+    ) -> SVG._Attributes<Self> {
         attribute("viewBox", "\(minX.formatted(.number)) \(minY.formatted(.number)) \(width.formatted(.number)) \(height.formatted(.number))")
     }
 
     /// Sets the preserveAspectRatio attribute.
     public func preserveAspectRatio(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("preserveAspectRatio", value)
     }
 
@@ -396,43 +379,36 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the href attribute.
     public func href(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("href", value)
     }
 
     /// Sets the xlink:href attribute (legacy).
     public func xlinkHref(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("xlink:href", value)
     }
 
     /// Sets the target attribute.
     public func target(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("target", value)
     }
 
     /// Sets the download attribute.
     public func download(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("download", value)
     }
 
     /// Sets the rel attribute.
     public func rel(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("rel", value)
     }
 
     /// Sets the hreflang attribute.
     public func hreflang(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("hreflang", value)
     }
 
     /// Sets the type attribute.
     public func type(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("type", value)
     }
 }
@@ -442,55 +418,46 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the gradientUnits attribute.
     public func gradientUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("gradientUnits", value)
     }
 
     /// Sets the gradientTransform attribute.
     public func gradientTransform(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("gradientTransform", value)
     }
 
     /// Sets the spreadMethod attribute.
     public func spreadMethod(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("spreadMethod", value)
     }
 
     /// Sets the offset attribute (for gradient stops).
     public func offset(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("offset", value)
     }
 
     /// Sets the stop-color attribute.
     public func stopColor(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("stop-color", value)
     }
 
     /// Sets the stop-opacity attribute.
     public func stopOpacity(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("stop-opacity", value.formatted(.number))
+        return attribute("stop-opacity", value?.formatted(.number))
     }
 
     /// Sets the fx attribute (radial gradient focal point x).
     public func fx(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("fx", value)
     }
 
     /// Sets the fy attribute (radial gradient focal point y).
     public func fy(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("fy", value)
     }
 
     /// Sets the fr attribute (radial gradient focal radius).
     public func fr(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("fr", value)
     }
 }
@@ -500,19 +467,16 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the patternUnits attribute.
     public func patternUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("patternUnits", value)
     }
 
     /// Sets the patternContentUnits attribute.
     public func patternContentUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("patternContentUnits", value)
     }
 
     /// Sets the patternTransform attribute.
     public func patternTransform(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("patternTransform", value)
     }
 }
@@ -522,19 +486,16 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the clipPathUnits attribute.
     public func clipPathUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("clipPathUnits", value)
     }
 
     /// Sets the maskUnits attribute.
     public func maskUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("maskUnits", value)
     }
 
     /// Sets the maskContentUnits attribute.
     public func maskContentUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("maskContentUnits", value)
     }
 }
@@ -544,49 +505,41 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the refX attribute.
     public func refX(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("refX", value.formatted(.number))
+        return attribute("refX", value?.formatted(.number))
     }
 
     /// Sets the refX attribute as a string.
     public func refX(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("refX", value)
     }
 
     /// Sets the refY attribute.
     public func refY(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("refY", value.formatted(.number))
+        return attribute("refY", value?.formatted(.number))
     }
 
     /// Sets the refY attribute as a string.
     public func refY(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("refY", value)
     }
 
     /// Sets the markerWidth attribute.
     public func markerWidth(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("markerWidth", value.formatted(.number))
+        return attribute("markerWidth", value?.formatted(.number))
     }
 
     /// Sets the markerHeight attribute.
     public func markerHeight(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("markerHeight", value.formatted(.number))
+        return attribute("markerHeight", value?.formatted(.number))
     }
 
     /// Sets the markerUnits attribute.
     public func markerUnits(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("markerUnits", value)
     }
 
     /// Sets the orient attribute.
     public func orient(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("orient", value)
     }
 }
@@ -596,43 +549,135 @@ extension SVG.View {
 extension SVG.View {
     /// Sets the dx attribute (text offset x).
     public func dx(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("dx", value.formatted(.number))
+        return attribute("dx", value?.formatted(.number))
     }
 
     /// Sets the dx attribute as a string.
     public func dx(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("dx", value)
     }
 
     /// Sets the dy attribute (text offset y).
     public func dy(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("dy", value.formatted(.number))
+        return attribute("dy", value?.formatted(.number))
     }
 
     /// Sets the dy attribute as a string.
     public func dy(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("dy", value)
     }
 
     /// Sets the textLength attribute.
     public func textLength(_ value: Double?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
-        return attribute("textLength", value.formatted(.number))
+        return attribute("textLength", value?.formatted(.number))
     }
 
     /// Sets the textLength attribute as a string.
     public func textLength(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("textLength", value)
     }
 
     /// Sets the lengthAdjust attribute.
     public func lengthAdjust(_ value: String?) -> SVG._Attributes<Self> {
-        guard let value else { return SVG._Attributes(content: self, attributes: [:]) }
         return attribute("lengthAdjust", value)
+    }
+}
+
+// MARK: - Typed Geometry Attributes (from swift-standards)
+
+extension SVG.View {
+    /// Sets the x attribute from a typed X coordinate.
+    public func x(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
+        return attribute("x", "\(value)")
+    }
+
+    /// Sets the y attribute from a typed Y coordinate.
+    public func y(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
+        return attribute("y", "\(value)")
+    }
+
+    /// Sets the width attribute from a typed Width.
+    public func width(_ value: W3C_SVG2.Width?) -> SVG._Attributes<Self> {
+        return attribute("width", "\(value)")
+    }
+
+    /// Sets the height attribute from a typed Height.
+    public func height(_ value: W3C_SVG2.Height?) -> SVG._Attributes<Self> {
+        return attribute("height", "\(value)")
+    }
+
+    /// Sets the cx attribute from a typed X coordinate.
+    public func cx(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
+        return attribute("cx", "\(value)")
+    }
+
+    /// Sets the cy attribute from a typed Y coordinate.
+    public func cy(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
+        return attribute("cy", "\(value)")
+    }
+
+    /// Sets the r attribute from a typed Radius.
+    public func r(_ value: W3C_SVG2.Radius?) -> SVG._Attributes<Self> {
+        return attribute("r", "\(value)")
+    }
+
+    /// Sets the rx attribute from a typed Width.
+    public func rx(_ value: W3C_SVG2.Width?) -> SVG._Attributes<Self> {
+        return attribute("rx", "\(value)")
+    }
+
+    /// Sets the ry attribute from a typed Height.
+    public func ry(_ value: W3C_SVG2.Height?) -> SVG._Attributes<Self> {
+        return attribute("ry", "\(value)")
+    }
+
+    /// Sets the x1 attribute from a typed X coordinate.
+    public func x1(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
+        return attribute("x1", "\(value)")
+    }
+
+    /// Sets the y1 attribute from a typed Y coordinate.
+    public func y1(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
+        return attribute("y1", "\(value)")
+    }
+
+    /// Sets the x2 attribute from a typed X coordinate.
+    public func x2(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
+        return attribute("x2", "\(value)")
+    }
+
+    /// Sets the y2 attribute from a typed Y coordinate.
+    public func y2(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
+        return attribute("y2", "\(value)")
+    }
+
+    /// Sets the dx attribute from a typed Dx displacement.
+    public func dx(_ value: W3C_SVG2.Dx?) -> SVG._Attributes<Self> {
+        return attribute("dx", "\(value)")
+    }
+
+    /// Sets the dy attribute from a typed Dy displacement.
+    public func dy(_ value: W3C_SVG2.Dy?) -> SVG._Attributes<Self> {
+        return attribute("dy", "\(value)")
+    }
+
+    /// Sets the refX attribute from a typed X coordinate.
+    public func refX(_ value: W3C_SVG2.X?) -> SVG._Attributes<Self> {
+        return attribute("refX", "\(value)")
+    }
+
+    /// Sets the refY attribute from a typed Y coordinate.
+    public func refY(_ value: W3C_SVG2.Y?) -> SVG._Attributes<Self> {
+        return attribute("refY", "\(value)")
+    }
+
+    /// Sets the markerWidth attribute from a typed Width.
+    public func markerWidth(_ value: W3C_SVG2.Width?) -> SVG._Attributes<Self> {
+        return attribute("markerWidth", "\(value)")
+    }
+
+    /// Sets the markerHeight attribute from a typed Height.
+    public func markerHeight(_ value: W3C_SVG2.Height?) -> SVG._Attributes<Self> {
+        return attribute("markerHeight", "\(value)")
     }
 }
