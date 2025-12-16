@@ -22,7 +22,7 @@ struct SVGRenderableTests {
     @Test("Text escapes special characters")
     func textEscapesSpecialChars() throws {
         let text = SVG.Text("<script>alert('xss')</script>")
-        let string = try String(text)
+        let string = String(text)
         #expect(string.contains("&lt;"))
         #expect(string.contains("&gt;"))
         #expect(string.contains("&apos;"))
@@ -32,7 +32,7 @@ struct SVGRenderableTests {
     @Test("Raw does not escape")
     func rawDoesNotEscape() throws {
         let raw = SVG.Raw("<circle cx=\"50\" cy=\"50\" r=\"40\"/>")
-        let string = try String(raw)
+        let string = String(raw)
         #expect(string == "<circle cx=\"50\" cy=\"50\" r=\"40\"/>")
     }
 
@@ -43,14 +43,14 @@ struct SVGRenderableTests {
             SVG.Text(" ")
             SVG.Text("World")
         }
-        let string = try String(group)
+        let string = String(group)
         #expect(string == "Hello World")
     }
 
     @Test("Circle element renders with attributes")
     func circleRenders() throws {
         let circle = SVG_Standard.Shapes.Circle(cx: 50, cy: 50, r: 40)()
-        let string = try String(circle)
+        let string = String(circle)
         #expect(string.contains("<circle"))
         #expect(string.contains("cx=\"50\""))
         #expect(string.contains("cy=\"50\""))
@@ -61,7 +61,7 @@ struct SVGRenderableTests {
     @Test("Rectangle element renders with attributes")
     func rectRenders() throws {
         let rect = SVG_Standard.Shapes.Rectangle(x: 10, y: 20, width: 100, height: 50)()
-        let string = try String(rect)
+        let string = String(rect)
         #expect(string.contains("<rect"))
         #expect(string.contains("x=\"10\""))
         #expect(string.contains("y=\"20\""))
@@ -77,7 +77,7 @@ struct SVGRenderableTests {
             height: .number(100),
             viewBox: SVG_Standard.Types.ViewBox(minX: 0, minY: 0, width: 200, height: 100)
         )()
-        let string = try String(svg)
+        let string = String(svg)
         #expect(string.contains("<svg"))
         #expect(string.contains("width=\"200\""))
         #expect(string.contains("height=\"100\""))
@@ -91,7 +91,7 @@ struct SVGRenderableTests {
             .fill("red")
             .stroke("black")
             .strokeWidth(2)
-        let string = try String(circle)
+        let string = String(circle)
         #expect(string.contains("fill=\"red\""))
         #expect(string.contains("stroke=\"black\""))
         #expect(string.contains("stroke-width=\"2\""))
@@ -103,7 +103,7 @@ struct SVGRenderableTests {
             SVG_Standard.Shapes.Circle(cx: 50, cy: 50, r: 40)()
                 .fill("blue")
         }
-        let string = try String(svg)
+        let string = String(svg)
         #expect(string.contains("<svg"))
         #expect(string.contains("<circle"))
         #expect(string.contains("fill=\"blue\""))
