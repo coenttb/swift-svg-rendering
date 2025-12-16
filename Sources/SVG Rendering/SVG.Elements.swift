@@ -392,7 +392,12 @@ extension SVG.View {
 // MARK: - SVG.View Conformances
 // Direct conformances for W3C SVG types, enabling cleaner DSL usage without callAsFunction.
 
-extension SVG_Standard.Shapes.Circle: SVG.View {
+extension Geometry<Double, W3C_SVG.Space>.Ball: @retroactive Rendering.`Protocol` where N == 2 {
+    public typealias Context = SVG.Context
+    public typealias Output = UInt8
+}
+
+extension Geometry<Double, W3C_SVG.Space>.Ball: SVG.View where N == 2 {
     public var body: some SVG.View {
         SVG.Element(tag: Self.tagName) { SVG.Empty() }
             .cx(self.cx)

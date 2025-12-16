@@ -37,7 +37,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/coenttb/swift-renderable", from: "3.2.0"),
-        .package(url: "https://github.com/swift-standards/swift-svg-standard", from: "0.2.0"),
+        .package(name: "swift-svg-standard", path: "../swift-svg-standard-unified"),
         .package(url: "https://github.com/swift-standards/swift-standards",from: "0.1.0"),
         .package(url: "https://github.com/swift-standards/swift-incits-4-1986", from: "0.1.0"),
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.0"),
