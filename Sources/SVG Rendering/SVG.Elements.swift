@@ -421,32 +421,43 @@ extension Geometry.Orthotope: SVG.View where Scalar == Double, Space == W3C_SVG.
     }
 }
 
-extension SVG_Standard.Shapes.Ellipse: SVG.View {
+extension Geometry.Ellipse: @retroactive Rendering.`Protocol`
+where Scalar == Double, Space == W3C_SVG.Space {
+    public typealias Context = SVG.Context
+    public typealias Output = UInt8
+}
+
+extension Geometry.Ellipse: SVG.View where Scalar == Double, Space == W3C_SVG.Space {
     public var body: some SVG.View {
-        SVG.Element(tag: Self.tagName) { SVG.Empty() }
-            .cx(self.cx)
-            .cy(self.cy)
-            .rx(self.rx)
-            .ry(self.ry)
+        svg
     }
 }
 
-extension SVG_Standard.Shapes.Line: SVG.View {
+extension Geometry.Line.Segment: @retroactive Rendering.`Protocol`
+where Scalar == Double, Space == W3C_SVG.Space {
+    public typealias Context = SVG.Context
+    public typealias Output = UInt8
+}
+
+extension Geometry.Line.Segment: SVG.View where Scalar == Double, Space == W3C_SVG.Space {
     public var body: some SVG.View {
-        SVG.Element(tag: Self.tagName) { SVG.Empty() }
-            .x1(self.x1)
-            .y1(self.y1)
-            .x2(self.x2)
-            .y2(self.y2)
+        svg
     }
 }
 
-extension SVG_Standard.Shapes.Polygon: SVG.View {
+extension Geometry.Polygon: @retroactive Rendering.`Protocol`
+where Scalar == Double, Space == W3C_SVG.Space {
+    public typealias Context = SVG.Context
+    public typealias Output = UInt8
+}
+
+extension Geometry.Polygon: SVG.View where Scalar == Double, Space == W3C_SVG.Space {
     public var body: some SVG.View {
-        SVG.Element(tag: Self.tagName) { SVG.Empty() }
-            .points(self.points)
+        svg
     }
 }
+
+// Note: Ellipse, Line, Polygon conformances are now handled via Geometry type extensions above
 
 extension SVG_Standard.Shapes.Polyline: SVG.View {
     public var body: some SVG.View {
