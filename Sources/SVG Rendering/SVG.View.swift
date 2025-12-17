@@ -8,6 +8,7 @@
 import Dimension
 import OrderedCollections
 public import Rendering
+import Formatting
 
 /// A namespace for SVG-related types.
 public enum SVG {}
