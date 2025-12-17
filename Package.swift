@@ -41,6 +41,7 @@ let package = Package(
         .package(url: "https://github.com/swift-standards/swift-standards",from: "0.1.0"),
         .package(url: "https://github.com/swift-standards/swift-incits-4-1986", from: "0.1.0"),
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.0"),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0"),
     ],
     targets: [
         .target(
@@ -58,7 +59,8 @@ let package = Package(
         .testTarget(
             name: .svgRendering.tests,
             dependencies: [
-                .svgRendering
+                .svgRendering,
+                .product(name: "InlineSnapshotTesting", package: "swift-snapshot-testing"),
             ]
         ),
     ]
