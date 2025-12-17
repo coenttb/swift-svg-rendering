@@ -24,6 +24,11 @@ extension SVG_Standard.Shapes.Circle {
 
 extension SVG_Standard.Shapes.Rectangle {
     /// Renders the rect element with optional child content.
+    ///
+    /// Corner radii (rx, ry) can be applied using modifiers:
+    /// ```swift
+    /// rect().rx(5).ry(5)
+    /// ```
     public func callAsFunction<Content: SVG.View>(
         @SVG.Builder _ content: () -> Content = { SVG.Empty() }
     ) -> some SVG.View {
@@ -32,8 +37,6 @@ extension SVG_Standard.Shapes.Rectangle {
             .y(self.y)
             .width(self.width)
             .height(self.height)
-            .rx(self.rx)
-            .ry(self.ry)
     }
 }
 
@@ -390,31 +393,31 @@ extension SVG.View {
 }
 
 // MARK: - SVG.View Conformances
-// Direct conformances for W3C SVG types, enabling cleaner DSL usage without callAsFunction.
+// Direct conformances for W3C SVG types.
+// Geometry types conform to SVG.View for direct DSL usage, and also provide .svg
+// for explicit SVG-specific operations (transforms, etc.) separate from math operations.
 
-extension Geometry<Double, W3C_SVG.Space>.Ball: @retroactive Rendering.`Protocol` where N == 2 {
+extension Geometry.Ball: @retroactive Rendering.`Protocol`
+where Scalar == Double, Space == W3C_SVG.Space, N == 2 {
     public typealias Context = SVG.Context
     public typealias Output = UInt8
 }
 
-extension Geometry<Double, W3C_SVG.Space>.Ball: SVG.View where N == 2 {
+extension Geometry.Ball: SVG.View where Scalar == Double, Space == W3C_SVG.Space, N == 2 {
     public var body: some SVG.View {
-        SVG.Element(tag: Self.tagName) { SVG.Empty() }
-            .cx(self.cx)
-            .cy(self.cy)
-            .r(self.r)
+        svg
     }
 }
 
-extension SVG_Standard.Shapes.Rectangle: SVG.View {
+extension Geometry.Orthotope: @retroactive Rendering.`Protocol`
+where Scalar == Double, Space == W3C_SVG.Space, N == 2 {
+    public typealias Context = SVG.Context
+    public typealias Output = UInt8
+}
+
+extension Geometry.Orthotope: SVG.View where Scalar == Double, Space == W3C_SVG.Space, N == 2 {
     public var body: some SVG.View {
-        SVG.Element(tag: Self.tagName) { SVG.Empty() }
-            .x(self.x)
-            .y(self.y)
-            .width(self.width)
-            .height(self.height)
-            .rx(self.rx)
-            .ry(self.ry)
+        svg
     }
 }
 
