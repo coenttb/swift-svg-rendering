@@ -1,5 +1,5 @@
-import Dictionary_Ordered_Primitives
-import Format_Primitives
+import Dictionary_Ordered
+import Format
 public import SVG_Standard
 
 extension SVG_Standard.Shapes.Circle {

@@ -1,5 +1,5 @@
-public import Dictionary_Ordered_Primitives
-import Render_Primitives
+public import Dictionary_Ordered
+import Render
 
 extension SVG {
     public struct _Attributes<Content: SVG.View>: SVG.View {

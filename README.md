@@ -51,7 +51,7 @@ let markup = String(document)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-foundations/swift-svg-render.git", branch: "main")
+    .package(url: "https://github.com/swift-compositions/swift-svg-render.git", branch: "main")
 ]
 ```
 
@@ -77,7 +77,7 @@ Two library products.
 | `SVG Rendering` | `SVG_Rendering` | The `SVG` namespace, the `SVG.View` DSL and `SVG.Builder`, attribute modifiers, byte/string rendering, and the `callAsFunction` / `SVG.View` conformances that render W3C SVG Standard element types. |
 | `SVG Rendering Test Support` | `SVG_Rendering_Test_Support` | Re-exports for test consumers, including the SVG snapshot strategy. |
 
-Importing `SVG Rendering` re-exports `SVG Standard`, `Render Primitives`, `Format Primitives`, `ASCII Primitives`, and `Dictionary Primitives`, so the element types and the result builder are available from the single import.
+Importing `SVG Rendering` re-exports `SVG Standard`, `Render`, `Format`, `ASCII`, and `Dictionary`, so the element types and the result builder are available from the single import.
 
 ---
 

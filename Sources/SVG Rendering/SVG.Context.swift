@@ -1,5 +1,5 @@
-public import Dictionary_Ordered_Primitives
-import Render_Primitives
+public import Dictionary_Ordered
+import Render
 
 extension SVG {
     public struct Context: Sendable {

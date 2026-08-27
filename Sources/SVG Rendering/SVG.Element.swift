@@ -1,5 +1,5 @@
-import ASCII_Primitives
-import Dictionary_Ordered_Primitives
+import ASCII
+import Dictionary_Ordered
 
 extension SVG {
 

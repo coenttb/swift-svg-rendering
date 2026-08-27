@@ -12,38 +12,38 @@ extension Target.Dependency {
 }
 
 extension Target.Dependency {
-    static var renderingPrimitives: Self {
-        .product(name: "Render Primitives", package: "swift-render-primitives")
+    static var rendering: Self {
+        .product(name: "Render", package: "swift-render")
     }
     static var svgStandard: Self {
         .product(name: "SVG Standard", package: "swift-svg-standard")
     }
-    static var asciiPrimitives: Self {
-        .product(name: "ASCII Primitives", package: "swift-ascii-primitives")
+    static var ascii: Self {
+        .product(name: "ASCII", package: "swift-ascii")
     }
     static var formatting: Self {
-        .product(name: "Format Primitives", package: "swift-format-primitives")
+        .product(name: "Format", package: "swift-format")
     }
     static var dimension: Self {
-        .product(name: "Dimension Primitives", package: "swift-dimension-primitives")
+        .product(name: "Dimension", package: "swift-dimension")
     }
-    static var dictionaryPrimitives: Self {
-        .product(name: "Dictionary Primitives", package: "swift-dictionary-primitives")
+    static var dictionary: Self {
+        .product(name: "Dictionary", package: "swift-dictionary")
     }
     static var sharedPrimitive: Self {
-        .product(name: "Ownership Shared Primitive", package: "swift-ownership-shared-primitives")
+        .product(name: "Ownership Shared Primitive", package: "swift-ownership-shared")
     }
     static var hashIndexedPrimitive: Self {
-        .product(name: "Hash Indexed Primitive", package: "swift-hash-table-primitives")
+        .product(name: "Hash Indexed Primitive", package: "swift-hash-table")
     }
-    static var columnPrimitives: Self {
-        .product(name: "Column Primitives", package: "swift-column-primitives")
+    static var column: Self {
+        .product(name: "Column", package: "swift-column")
     }
-    static var hashPrimitives: Self {
-        .product(name: "Hash Primitives", package: "swift-hash-primitives")
+    static var hash: Self {
+        .product(name: "Hash", package: "swift-hash")
     }
     static var bufferLinearPrimitive: Self {
-        .product(name: "Buffer Linear Primitive", package: "swift-buffer-linear-primitives")
+        .product(name: "Buffer Linear Primitive", package: "swift-buffer-linear")
     }
 }
 
@@ -62,48 +62,48 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-render-primitives.git",
+            url: "https://github.com/swift-molecules/swift-render.git",
             branch: "main"
         ),
         .package(url: "https://github.com/swift-standards/swift-svg-standard.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-primitives/swift-format-primitives.git",
+            url: "https://github.com/swift-molecules/swift-format.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-dimension-primitives.git",
+            url: "https://github.com/swift-molecules/swift-dimension.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-ascii-primitives.git",
+            url: "https://github.com/swift-molecules/swift-ascii.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-dictionary-primitives.git",
+            url: "https://github.com/swift-molecules/swift-dictionary.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-dictionary-ordered-primitives.git",
+            url: "https://github.com/swift-molecules/swift-dictionary-ordered.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-ownership-shared-primitives.git",
+            url: "https://github.com/swift-molecules/swift-ownership-shared.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-hash-table-primitives.git",
+            url: "https://github.com/swift-molecules/swift-hash-table.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-column-primitives.git",
+            url: "https://github.com/swift-molecules/swift-column.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-hash-primitives.git",
+            url: "https://github.com/swift-molecules/swift-hash.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-buffer-linear-primitives.git",
+            url: "https://github.com/swift-molecules/swift-buffer-linear.git",
             branch: "main"
         ),
     ],
@@ -111,20 +111,20 @@ let package = Package(
         .target(
             name: .svgRendering,
             dependencies: [
-                .renderingPrimitives,
+                .rendering,
                 .svgStandard,
-                .asciiPrimitives,
+                .ascii,
                 .formatting,
                 .dimension,
-                .dictionaryPrimitives,
+                .dictionary,
                 .product(
-                    name: "Dictionary Ordered Primitives",
-                    package: "swift-dictionary-ordered-primitives"
+                    name: "Dictionary Ordered",
+                    package: "swift-dictionary-ordered"
                 ),
                 .sharedPrimitive,
                 .hashIndexedPrimitive,
-                .columnPrimitives,
-                .hashPrimitives,
+                .column,
+                .hash,
                 .bufferLinearPrimitive,
             ]
         ),
@@ -133,8 +133,8 @@ let package = Package(
             dependencies: [
                 .svgRendering,
                 .product(
-                    name: "Dimension Primitives Test Support",
-                    package: "swift-dimension-primitives"
+                    name: "Dimension Test Support",
+                    package: "swift-dimension"
                 ),
             ],
             path: "Tests/Support"

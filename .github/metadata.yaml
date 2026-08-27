@@ -2,7 +2,7 @@
 # Triaged by AI-assisted bulk pass (2026-04-29).
 description: "A result-builder DSL for rendering W3C SVG Standard documents to bytes or strings in Swift."
 topics:
-  - foundations
+  - compositions
   - svg
 homepage: "https://swift-institute.org"
 readme:

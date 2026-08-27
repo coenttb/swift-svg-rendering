@@ -1,7 +1,7 @@
-import Dictionary_Ordered_Primitives
-import Dimension_Primitives
-import Format_Primitives
-public import Render_Primitives
+import Dictionary_Ordered
+import Dimension
+import Format
+public import Render
 
 public enum SVG {}
 

@@ -1,4 +1,4 @@
-public import Render_Primitives
+public import Render
 
 extension Render._Tuple: SVG.View where repeat each Content: SVG.View {
     public var body: Never { fatalError("body should not be called") }

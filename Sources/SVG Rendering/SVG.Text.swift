@@ -1,4 +1,4 @@
-import ASCII_Primitives
+import ASCII
 
 extension SVG {
     public struct Text: SVG.View {

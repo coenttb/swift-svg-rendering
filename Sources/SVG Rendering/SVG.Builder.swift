@@ -1,4 +1,4 @@
-public import Render_Primitives
+public import Render
 
 extension SVG {
     public typealias Builder = Render.Builder

@@ -1,4 +1,4 @@
-public import Render_Primitives
+public import Render
 
 extension Render.Conditional: SVG.View where First: SVG.View, Second: SVG.View {
     public var body: Never { fatalError("body should not be called") }
